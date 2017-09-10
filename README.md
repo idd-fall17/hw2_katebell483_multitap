@@ -14,8 +14,8 @@ The physical device is a simple laser cut wood box surrounding a breadboard. I s
 I would say the most challenging aspect of this assignment was constructing the physical device. Though the code was relatively straightforward to write, getting it to play nicely with the device design was difficult.  Managing the wires and learning to solder were also more work then I expected. Ultimately, I left the project filled with ideas of how I want to do things differently the next time around and feeling empowered and knowledgeable enough to begin to refine my design choices. In this way, the project was a great introduction to the key fundamentals and a solid jumping off point.
 
 Images:
-![alt text](./hw2_bell_device.jpg) 
-![alt text](./hw2_bell_device2.jpg) 
+![alt text](./hw2_bell_device.JPG) 
+![alt text](./hw2_bell_device2.JPG) 
 ![alt text](./hw2_bell_bb.jpg) 
 ![alt text](./hw2_bell_schem.jpg) 
 
