@@ -14,21 +14,23 @@ public class Hw2TemplateApp extends SimplePicoPro {
 
     // global vars
     int counter = 0;
-    char currChar;
     Gpio prev_pin;
     boolean still_triggering;
+    Runnable currPrintCharRunnable;
 
-    // handler for printing chars to screen with delay
+    // handler + runnable for printing chars to screen with delay
     Handler timerHandler1 = new Handler();
-    Runnable timerRunnable1 = new Runnable() {
-        @Override
-        public void run() {
-            printCharacterToScreen(currChar);
-            counter = 0;
-        }
-    };
+    private Runnable createRunnable(final char charToPrint){
+        Runnable timerRunnable1 = new Runnable(){
+            public void run(){
+                printCharacterToScreen(charToPrint);
+                counter = 0;
+            }
+        };
+        return timerRunnable1;
+    }
 
-    // handler for debouncing effect
+    // handler + runnable for debouncing effect
     Handler timerHandler2 = new Handler();
     Runnable timerRunnable2 = new Runnable() {
         @Override
@@ -82,11 +84,6 @@ public class Hw2TemplateApp extends SimplePicoPro {
     void digitalEdgeEvent(Gpio pin, boolean value) {
         println("digitalEdgeEvent"+pin+", "+value);
 
-        // reset index if new button
-        if(pin != prev_pin) {
-            counter = 0;
-        }
-
         if(value == LOW) return;
 
         // watch for bouncing
@@ -94,15 +91,21 @@ public class Hw2TemplateApp extends SimplePicoPro {
         still_triggering = true;
         timerHandler2.postDelayed(timerRunnable2, 100);
 
+        // reset index if new button. Otherwise, remove queued callbacks
+        if(pin != prev_pin) {
+            counter = 0;
+        } else {
+            // reset current running timeout
+            timerHandler1.removeCallbacks(currPrintCharRunnable);
+        }
+
         // track current pin
         prev_pin = pin;
 
         // track next letter
+        char currChar = 'a';
         int curIdx3;
         int curIdx4;
-
-        // reset current running timeout
-        timerHandler1.removeCallbacks(timerRunnable1);
 
         // for keys with 3 letters
         curIdx3 = counter % 3;
@@ -161,7 +164,8 @@ public class Hw2TemplateApp extends SimplePicoPro {
         }
 
         // post char to screen with delay
-        timerHandler1.postDelayed(timerRunnable1, 500);
+        currPrintCharRunnable = createRunnable(currChar);
+        timerHandler1.postDelayed(currPrintCharRunnable, 500);
     }
 
     void testInputs(Gpio pin, boolean value) {
