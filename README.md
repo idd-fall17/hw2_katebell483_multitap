@@ -11,8 +11,9 @@ The code was implemented using two java handlers-- one to keep letter state and 
 
 The physical device is a simple laser cut wood box surrounding a breadboard. I soldered wires to each of the switches so that I was able to elevate them above the box, which contained holes for the wires to reach the breadboard. I then used the laser cutter again to create descriptive button covers and glued them to the original buttons. 
 
-I would say the most challenging aspect of this assignment was constructing the physical device. Though the code was relatively straightforward to write, getting it to play nicely with the device design was difficult.  Learning to solder was key in this assignment. Managing the wires and designing the circuit also offered an interesting challenge. Ultimately, I left the project filled with ideas of how I want to do things differently the next time around and feeling empowered and knowledgeable enough to begin to refine my design choices. In this way, the project was a great introduction to the key fundamentals and a solid jumping off point.
-
+Reflection:
+I found the difficulty level of the assignment to be about what I expected and appropriate for the course. I would say the most challenging aspect of the work was constructing the physical device. Though the code was relatively straightforward to write, getting it to play nicely with the device design was difficult.  Learning to solder was key. Managing the wires and designing the circuit also offered an interesting challenge. I have little experience with electronics and this was a great introduction. Ultimately, I left the project filled with ideas of how I want to do things differently the next time around and feeling empowered and knowledgeable enough to begin to refine my design choices.
+ 
 Images:
 ![](./hw2_bell_device.JPG) 
 ![](./hw2_bell_device2.JPG) 
