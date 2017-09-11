@@ -161,7 +161,7 @@ public class Hw2TemplateApp extends SimplePicoPro {
         }
 
         // post char to screen with delay
-        timerHandler1.postDelayed(timerRunnable1, 800);
+        timerHandler1.postDelayed(timerRunnable1, 500);
     }
 
     void testInputs(Gpio pin, boolean value) {
